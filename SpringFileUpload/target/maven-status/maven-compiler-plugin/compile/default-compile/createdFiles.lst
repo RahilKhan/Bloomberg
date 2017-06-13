@@ -1,0 +1,4 @@
+com\technicalkeeda\configuration\FileuploadController.class
+com\technicalkeeda\configuration\ApplicationInitializer.class
+com\technicalkeeda\configuration\ApplicationConfig.class
+com\technicalkeeda\bean\FileInfo.class
