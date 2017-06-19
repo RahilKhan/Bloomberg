@@ -19,7 +19,8 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter {
     @Bean
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WEB-INF/jsp/");
+//        resolver.setPrefix("/WEB-INF/jsp/");
+        resolver.setPrefix("/pages/");
         resolver.setSuffix(".jsp");
         return resolver;
     }
@@ -35,6 +36,11 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/assets/**").addResourceLocations("/assets/");
+//        registry.addResourceHandler("/pages/**").addResourceLocations("/pages/");
+        
+        if (!registry.hasMappingForPattern("/*.jsp")) {
+        	registry.addResourceHandler("/pages/**").addResourceLocations("/pages/");
+        }
     }
  
 }

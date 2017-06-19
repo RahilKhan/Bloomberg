@@ -27,9 +27,9 @@ public class FileuploadController {
         if (!files.isEmpty()) {
             try {
                 for (MultipartFile file: files) {
-                    String path = context.getRealPath("/WEB-INF/uploaded") + File.separator +
-                        file.getOriginalFilename();
+                    String path = "C:\\Users\\rahikhan\\Downloads\\mockData" + File.separator + file.getOriginalFilename();
                     File destinationFile = new File(path);
+                    System.out.println("\t path : " + path);
                     file.transferTo(destinationFile);
                     uploadedFiles.add(new FileInfo(destinationFile.getName(), path));
                 }
@@ -39,7 +39,7 @@ public class FileuploadController {
             }
  
         }
-        ModelAndView modelAndView = new ModelAndView("success");
+        ModelAndView modelAndView = new ModelAndView("success1");
         modelAndView.addObject("files", uploadedFiles);
         return modelAndView;
     }
